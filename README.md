@@ -14,15 +14,16 @@ A fully responsive, interactive React & TypeScript configuration builder designe
 - **Framework**: React (Vite / Next.js compatible setup)
 - **Styling**: Tailwind CSS
 - **Language**: TypeScript
+- **JSON data**: in src/data/builderData.json
 
 ---
 
-## 🚀 Getting Started (Run Instructions)
-
-Follow these steps to run the project locally from a clean clone:
+## 🚀 Clear run instructions
 
 1. **Clone the repository:**
    ```bash
    git clone <your-repository-url>
    cd <repository-folder>
+   npm install
+   npm run dev
    ```
