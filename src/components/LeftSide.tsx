@@ -1,4 +1,5 @@
 import React from "react";
+import AnimatedCollapse from "./common/AnimatedCollapse";
 
 interface LeftSideProps {
   initialData: {
@@ -112,7 +113,8 @@ export default function LeftSide({
               </button>
 
               {/* Accordion Content Body */}
-              {isOpen && (
+              {/* {isOpen && ( */}
+              <AnimatedCollapse isOpen={isOpen}>
                 <div className="px-1 pb-6 pt-2 space-y-6">
                   <div className="flex flex-wrap gap-4 pt-1 justify-center">
                     {stepProducts.map((prod) => {
@@ -284,7 +286,8 @@ export default function LeftSide({
                     </div>
                   )}
                 </div>
-              )}
+              </AnimatedCollapse>
+              {/* )} */}
             </section>
           </div>
         );

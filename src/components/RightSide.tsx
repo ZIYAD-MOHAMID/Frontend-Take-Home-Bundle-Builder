@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AnimatedModal from "./common/AnimatedModal";
 
 interface RightSideProps {
   lineItems: Array<{
@@ -281,7 +282,7 @@ export default function RightSide({
       </div>
       {/* Styled Pop-up Modal for Checkout */}
       {modalType === "checkout" && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fadeIn">
+        <div className="fixed inset-0 z-50 flex items-center justify-center   backdrop-blur-sm animate-fadeIn">
           <div className="bg-white w-full max-w-md p-6 rounded-lg shadow-2xl border border-slate-100 text-center space-y-4">
             <h3 className="font-[TT_Norms_Pro] font-bold text-[20px] text-[#1F1F1F]">
               Confirm Checkout
@@ -291,20 +292,27 @@ export default function RightSide({
               order?
             </p>
             <div className="flex gap-3 pt-2">
-              <button
-                onClick={() => setModalType(null)}
-                className="w-1/2 h-11 bg-slate-100 hover:bg-slate-200 text-slate-700 font-[TT_Norms_Pro] font-bold text-[15px] rounded-[4px] transition-colors"
+              <AnimatedModal
+                isOpen={modalType === "checkout"}
+                onClose={() => setModalType(null)}
+                title="Confirm Checkout"
+                description="Proceeding to checkout confirmation. Are you ready to secure your order?"
               >
-                Cancel
-              </button>
-              <button
-                onClick={() => {
-                  setModalType(null);
-                }}
-                className="w-1/2 h-11 bg-[#4E2FD2] hover:bg-[#3f25aa] text-white font-[TT_Norms_Pro] font-bold text-[15px] rounded-[4px] transition-colors"
-              >
-                Continue
-              </button>
+                <button
+                  onClick={() => setModalType(null)}
+                  className="w-1/2 h-11 bg-slate-100 hover:bg-slate-200 text-slate-700 font-[TT_Norms_Pro] font-bold text-[15px] rounded-[4px] transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => {
+                    setModalType(null);
+                  }}
+                  className="w-1/2 h-11 bg-[#4E2FD2] hover:bg-[#3f25aa] text-white font-[TT_Norms_Pro] font-bold text-[15px] rounded-[4px] transition-colors"
+                >
+                  Continue
+                </button>
+              </AnimatedModal>
             </div>
           </div>
         </div>
@@ -312,7 +320,7 @@ export default function RightSide({
 
       {/* Styled Pop-up Modal for Save System */}
       {modalType === "save" && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fadeIn">
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm animate-fadeIn">
           <div className="bg-white w-full max-w-md p-6 rounded-lg shadow-2xl border border-slate-100 text-center space-y-4">
             <h3 className="font-[TT_Norms_Pro] font-bold text-[20px] text-[#1F1F1F]">
               System Saved
@@ -322,12 +330,19 @@ export default function RightSide({
               easily restore it anytime.
             </p>
             <div className="pt-2">
-              <button
-                onClick={() => setModalType(null)}
-                className="w-full h-11 bg-[#4E2FD2] hover:bg-[#3f25aa] text-white font-[TT_Norms_Pro] font-bold text-[15px] rounded-[4px] transition-colors"
+              <AnimatedModal
+                isOpen={modalType === "save"}
+                onClose={() => setModalType(null)}
+                title="System Saved"
+                description="Your system configuration has been successfully saved! You can easily restore it anytime."
               >
-                Got it
-              </button>
+                <button
+                  onClick={() => setModalType(null)}
+                  className="w-full h-11 bg-[#4E2FD2] hover:bg-[#3f25aa] text-white font-[TT_Norms_Pro] font-bold text-[15px] rounded-[4px] transition-colors"
+                >
+                  Got it
+                </button>
+              </AnimatedModal>
             </div>
           </div>
         </div>
