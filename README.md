@@ -12,9 +12,9 @@ A fully responsive, interactive React & TypeScript configuration builder designe
 ## 🛠️ Tech Stack
 
 - **Framework**: React (Vite / Next.js compatible setup)
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS, Motion for Animation
 - **Language**: TypeScript
-- **JSON data**: in src/data/builderData.json
+- **Backend**: Node.js, Express, CORS
 
 ---
 
@@ -25,5 +25,5 @@ A fully responsive, interactive React & TypeScript configuration builder designe
    git clone <your-repository-url>
    cd <repository-folder>
    npm install
-   npm run dev
+   npm run dev:all
    ```

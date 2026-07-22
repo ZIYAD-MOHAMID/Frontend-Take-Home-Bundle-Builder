@@ -4,7 +4,7 @@ export interface ProductVariant {
   colorHex?: string;
   price: number | string;
   compareAtPrice?: number | string;
-  image?: string; 
+  image?: string;
 }
 
 export interface Step {
