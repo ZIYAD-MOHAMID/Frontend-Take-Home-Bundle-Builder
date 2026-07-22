@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface RightSideProps {
   lineItems: Array<{
@@ -49,6 +49,13 @@ export default function RightSide({
   savings,
   saveSystemForLater,
 }: RightSideProps) {
+  const [modalType, setModalType] = useState<"checkout" | "save" | null>(null);
+
+  const handleSaveClick = () => {
+    saveSystemForLater();
+    setModalType("save");
+  };
+
   return (
     <div className="w-full lg:col-span-5 2xl:w-full lg:sticky lg:top-6">
       <div className="bg-[#E3EFFF] rounded-t-[10px] border border-slate-200 p-6 sticky top-8 shadow-sm space-y-6 2xl:grid 2xl:grid-cols-2 2xl:gap-6 2xl:space-y-0 max-[500px]:p-2">
@@ -257,14 +264,14 @@ export default function RightSide({
               )}
             </div>
             <button
-              onClick={() => alert("Proceeding to checkout confirmation.")}
-              className="w-full h-12 bg-[#4E2FD2] hover:bg-[#3f25aa] text-white text-center align-middle font-[TT_Norms_Pro] font-[700] text-[17px] leading-[100%] tracking-[0px]"
+              onClick={() => setModalType("checkout")}
+              className="w-full h-12 bg-[#4E2FD2] hover:bg-[#3f25aa] text-white text-center align-middle font-[TT_Norms_Pro] font-[700] text-[17px] leading-[100%] tracking-[0px] transition-colors rounded-[4px]"
             >
               Checkout
             </button>
 
             <button
-              onClick={saveSystemForLater}
+              onClick={handleSaveClick}
               className="w-full text-center align-middle text-[#484848] font-[Gilroy-RegularItalic] font-normal italic text-[14px] leading-[120%] tracking-[-0.02px] underline decoration-solid"
             >
               Save my system for later
@@ -272,6 +279,59 @@ export default function RightSide({
           </div>
         </div>
       </div>
+      {/* Styled Pop-up Modal for Checkout */}
+      {modalType === "checkout" && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white w-full max-w-md p-6 rounded-lg shadow-2xl border border-slate-100 text-center space-y-4">
+            <h3 className="font-[TT_Norms_Pro] font-bold text-[20px] text-[#1F1F1F]">
+              Confirm Checkout
+            </h3>
+            <p className="font-[Gilroy-Regular] text-[16px] text-slate-600">
+              Proceeding to checkout confirmation. Are you ready to secure your
+              order?
+            </p>
+            <div className="flex gap-3 pt-2">
+              <button
+                onClick={() => setModalType(null)}
+                className="w-1/2 h-11 bg-slate-100 hover:bg-slate-200 text-slate-700 font-[TT_Norms_Pro] font-bold text-[15px] rounded-[4px] transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  setModalType(null);
+                }}
+                className="w-1/2 h-11 bg-[#4E2FD2] hover:bg-[#3f25aa] text-white font-[TT_Norms_Pro] font-bold text-[15px] rounded-[4px] transition-colors"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Styled Pop-up Modal for Save System */}
+      {modalType === "save" && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white w-full max-w-md p-6 rounded-lg shadow-2xl border border-slate-100 text-center space-y-4">
+            <h3 className="font-[TT_Norms_Pro] font-bold text-[20px] text-[#1F1F1F]">
+              System Saved
+            </h3>
+            <p className="font-[Gilroy-Regular] text-[16px] text-slate-600">
+              Your system configuration has been successfully saved! You can
+              easily restore it anytime.
+            </p>
+            <div className="pt-2">
+              <button
+                onClick={() => setModalType(null)}
+                className="w-full h-11 bg-[#4E2FD2] hover:bg-[#3f25aa] text-white font-[TT_Norms_Pro] font-bold text-[15px] rounded-[4px] transition-colors"
+              >
+                Got it
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

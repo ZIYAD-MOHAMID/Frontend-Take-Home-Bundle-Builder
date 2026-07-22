@@ -68,12 +68,13 @@ export function useSystemConfig(initialData: any) {
     }));
   };
 
+  const [modalType, setModalType] = useState(null); // 'checkout' | 'save' | null
+  // Handler for saving the system configuration
   const saveSystemForLater = () => {
     localStorage.setItem(
       STORAGE_KEY,
       JSON.stringify({ ...config, activeStep: activeAccordion }),
     );
-    alert("Your system configuration has been successfully saved!");
   };
 
   const getSelectedCountForStep = (stepId: string) => {
@@ -177,6 +178,8 @@ export function useSystemConfig(initialData: any) {
     getSelectedCountForStep,
     parsePrice,
     formatPrice,
+    modalType,
+    setModalType,
     lineItems,
     subtotal,
     compareSubtotal,
