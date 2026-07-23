@@ -16,8 +16,8 @@ A fully responsive, interactive React & TypeScript configuration builder designe
 
 ## 🚀 Clear run instructions
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone https://github.com/ZIYAD-MOHAMID/Frontend-Take-Home-Bundle-Builder.git
+   cd ./Frontend-Take-Home-Bundle-Builder
    npm install
    npm run dev:all
    ```
