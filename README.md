@@ -8,13 +8,14 @@ A fully responsive, interactive React & TypeScript configuration builder designe
 - **Modular Component Design**: Clean separation of concerns with dedicated `LeftSide` (interactive accordion product selector) and `RightSide` (sticky summary panel) components.
 - **Persistent State**: Utilizes browser `localStorage` to save user configuration seamlessly, ensuring selections aren't lost on refresh.
 - **Type-Safe Development**: Written entirely in TypeScript with strict interface definitions for products, variants, line items, and configurations.
+- **branded web page**: browser icons, a custom theme color, and optimized SEO and social media sharing metadata.
 
 ## 🛠️ Tech Stack
 
 - **Framework**: React (Vite / Next.js compatible setup)
 - **Styling**: Tailwind CSS, Motion for Animation
 - **Language**: TypeScript
-- **Backend**: Node.js, Express, CORS
+- **Backend**: Node.js, Express, CORS 
 
 ---
 
