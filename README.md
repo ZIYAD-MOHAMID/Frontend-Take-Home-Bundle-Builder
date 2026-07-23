@@ -20,9 +20,8 @@ A fully responsive, interactive React & TypeScript configuration builder designe
 
 ## 🚀 Clear run instructions
 
-1. **Clone the repository:**
    ```bash
-   git clone <your-repository-url>
+   git clone <repository-url>
    cd <repository-folder>
    npm install
    npm run dev:all
